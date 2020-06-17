@@ -63,11 +63,12 @@ class LogRegression:
 
 
 if __name__ == '__main__':
-    mobile_data = pd.read_csv('newDiamonds.csv')df
+    mobile_data = pd.read_csv('newRain.csv')
+    mobile_data.drop(['Unnamed: 0'], axis='columns', inplace=True)
     
-    X, Y = mobile_data.drop(['price'], axis=1), mobile_data['price']
+    X, Y = mobile_data.drop(['RainTomorrow'], axis=1), mobile_data['RainTomorrow']
 
-    x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=0.33, random_state=42)
+    x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=0.3, random_state=42)
 
     model = LogRegression()
 #     x_train = x_train.values
